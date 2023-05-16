@@ -7,7 +7,7 @@
 ## Business Requirements
 The cherry plantation crop from Farmy & Foods is facing a challenge where their cherry plantations have been presenting powdery mildew. The cherry plantation crop is one of the finest products in their portfolio, and the company is concerned about supplying the market with a compromised quality product. Currently, the process is manual verification if a given cherry tree contains powdery mildew. An employee spends around 30 minutes in each tree, taking a few samples of tree leaves and verifying visually if the leaf tree is healthy or has powdery mildew. If there is powdery mildew, the employee applies a specific compound to kill the fungus. The time spent applying this compound is 1 minute.  The company has thousands of cherry trees, located on multiple farms across the country. As a result, this manual process is not scalable due to the time spent in the manual process inspection.
 
-To save time in this process, the IT team suggested an ML system that detects instantly, using a leaf tree image, if it is healthy or has powdery mildew. A similar manual process is in place for other crops for detecting pests, and if this initiative is successful, there is a realistic chance to replicate this project for all other crops. The dataset is a collection of cherry leaf images provided by Farmy & Foods, taken from their crops.
+The purpose of this project is to save time in this process. The IT team suggested an ML system that detects instantly, using a leaf tree image, if it is healthy or has powdery mildew. A similar manual process is in place for other crops for detecting pests, and if this initiative is successful, there is a realistic chance to replicate this project for all other crops. The dataset is a collection of cherry leaf images provided by Farmy & Foods, taken from their crops.
 
 
 * 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
@@ -15,44 +15,48 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 
 ## Hypothesis and how to validate?
-* It is suspected that cherry leaf with powdery mildew have visual signs that diffirentiate them from healthy cherry leaves.
-  * An avarage image study can help to investigate it
-* It is suspected that a convolutional neural network (CNN) for image classification, can predict if a cherry leaf is healthy or have powdery mildew.
+* **Hypothesis 1:** It is suspected that cherry leaf with powdery mildew have visual signs that diffirentiate them from healthy cherry leaves.
+  * An image avarage and variability study can help to investigate it
+    * If this can be confirmed, this would indicate likelyhood of success in addressing hypothesis 2, and motivate the continuation of the project. 
+* **Hypothesis 2:** It is suspected that a convolutional neural network (CNN) for image classification, can predict if a cherry leaf is healthy or have powdery mildew.
   * Building, training and testing a CNN using the dataset mentioned above, will help to invastigate it.
-* It is suspected that using transfer learning, where a pre-trained CNN model is fine-tuned on the cherry leaf dataset can produce a higher prediction accuracy.
-  *  Importing a pre-trained model and fine-tuning it on the cherry leaf dataset will help investigate it.
+    * If this can be confirmed, a dashboard can be deployed and provide end user support in the leaf inspection process.
+* **Hypothesis 3:** It is suspected that model performance and the CNN:s ability to predict is dependant on image quality.
+  * Displaying how "confident" the model is in each prediction and visually examining the samples where the model shows a lower confidence, will help investigate it. 
+  	* If this can be confirmed. An image montage could be created to give visual instructions to an end user, on the quality standards that should be met to help model prediction performance on live data.
 
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 ### Map the business requirements in a User Story based format to each of the Data Visualization and ML Tasks along with the specific actions required for the enablement of each task.
 
 * **Business Requirement 1**: Data Visualization 
-	* We will display the "mean" and "standard deviation" images for parasitized and uninfected cells.
-    * The - correct one "study for average and variability image; the difference between average images, image"
- 	* We will display the difference between an average parasitized cell and an average uninfected cell.
+	* We will display the "mean" and "standard deviation" images for healthy cherry leaves and cherry leaves that have powdery mildew.
+ 	* We will display the difference between an average image of healthy cherry leaf and an average uninfected cell.
 	* We will display an image montage for either parasitized or uninfected cells.
 	
 	
 
 * **Business Requirement 2**:  Classification
-	* We want to predict if a given cell is infected or not with malaria. 
-	* We want to build a binary classifier and generate reports.
+	* We will augment a subset of the dataset provided by the client, to create more data for training a model. 
+	* We will build a model using a convolutional neural network (CNN) and train it using the training dataset, to determine if a cherry leaf has powdery mildew or not.
+	* We will build the model to output a level of certainty in its classification.
+	* In training the model, we will withold a subset of the provided dataset, in order to evaluate the model, using "unseen" data, in order to ensure we meet the clients request for a minimum of 97% prediction accuracy.
+	* We will generate reports presenting the CNN architecture and the model performance.
 
-The prediction should contain a level of certainty to guide the user in deciding if one should take more samples from the same tree.
 
 
 ## ML Business Case
 ### Articulate a Business Case for each Machine Learning task which must include the aim behind the predictive analytics task, the learning method, the ideal outcome for the process, success/failure metrics, model output and its relevance for the user, and any heuristics and training data used.
 
 * In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
-* We want a ML model to predict if a cell is infected with malaria or not, based on historical image data. It is a supervised model, a 2-class, single-label, classification model.
-* Our ideal outcome is provide the medical team a faster and reliable diagnostic if a given cell is infected or not with malaria.
+* We want an ML model to predict if a cherry leaf has powdery mildew or not, based on historical image data. It is a supervised model, a 2-class, single-label, classification model.
+* Our ideal outcome is provide the employees working with inspection, with a faster and reliable diagnostic if a given leaf has powdery mildew or not.
 * The model success metrics are
-	* Accuracy of 65% or above on the test set.
-* The model output is defined as a flag, indicating if the cell has malaria or not and the associated probability of being infected or not. The medical staff will do the blood smear workflow as usual and upload the picture to the App. The prediction is made on the fly (not in batches).
+	* Accuracy of 97% or above on the test set.
+* The model output is defined as a flag, indicating if the leaf has powdery mildew or not and the associated probability of having powdery mildew or not. The employees of the client will collect samples as usual and upload the picture to the app. The prediction is made on the fly (not in batches).
 * Heuristics: The current diagnostic needs an experienced staff and detailed inspection to distinguish infected and not infected cells. A blood smear sample is collected, mixed with a reagent and examined under the microscope. Visual criteria are used to detect malaria parasites. It leaves room to produce inaccurate diagnostics due to human errors. On top of that, some specific hospital facilities with malaria centers don't have sufficient, proper staff and expertise and are typically understaffed.
-* The training data to fit the model come from [National Institutes of Health (NIH) Website](https://ceb.nlm.nih.gov/repositories/malaria-datasets/). This dataset contains about 26+ thousand images. We have extracted a subset of 5643 images from this dataset and saved it to [kaggle dataset directory](https://www.kaggle.com/gyanshashwat1611/malaria-cell-classification/) for quicker model training.
-	* Train data - target: infected or not; features: all images
+* The training data to fit the model was provided by the client under an NDA (Non-Disclosure Agreement) and contain 4208 images. For this project it was collected from a [kaggle dataset endpoint](https://www.kaggle.com/codeinstitute/cherry-leaves).
+	* Train data - target: has powdery mildew or not; features: all images
 
 
 ## Dashboard Design
@@ -159,11 +163,28 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 
 Implement a data collection mechanism, from an endpoint, using Jupyter Notebook.
 
-If it is an image dataset, it should contain notebooks with tasks to: set image shape, study for average and variability image; the difference between average images, image montage, plot number of images in train, validation, and test set.
+If it is an image dataset, it should contain notebooks with tasks to: 
+- set image shape,
+- study for average and variability image;
+- the difference between average images,
+- image montage,
+- plot number of images in train, validation, and test set.
 
-Your notebook should execute tasks, when applicable, for defining the ML pipeline steps; conducting hyperparameter optimization; assessing feature importance; augmenting images and loading from folder to memory; defining neural network architecture; using techniques to prevent overfitting (such as early stopping and dropout layer), and fit the model/pipeline. Your modeling notebook has to create and save an ML pipeline/model that was fitted with the collected data.
+Your notebook should execute tasks, when applicable, for defining the ML pipeline steps;
+- conducting hyperparameter optimization;
+- assessing feature importance;
+- augmenting images and loading from folder to memory;
+- defining neural network architecture;
+- using techniques to prevent overfitting (such as early stopping and dropout layer),
+- and fit the model/pipeline.
+- Your modeling notebook has to create and save an ML pipeline/model that was fitted with the collected data.
 
-Or if the ML task is classification it should evaluate the confusion matrix and Scikit Learn classification report for both train and test sets. If it is an image dataset, it should indicate the learning curve (loss/accuracy) for both the train and validation sets. It should also evaluate and indicate the performance of the test set. Regardless of the case, it should be clearly stated in the notebook section where you evaluate the performance, whether or not your model/pipeline performance meets the performance requirement indicated in the business case
-List in bullet points the dashboard pages, and for each page: describe the content (such as text, plot, widgets etc) and, when applicable, indicate the business requirement that a given page is answering.
+Or if the ML task is classification it should 
+- evaluate the confusion matrix and Scikit Learn classification report for both train and test sets. 
+If it is an image dataset, it should 
+- indicate the learning curve (loss/accuracy) for both the train and validation sets.
+- It should also evaluate and indicate the performance of the test set. 
+- Regardless of the case, it should be clearly stated in the notebook section where you evaluate the performance, whether or not your model/pipeline performance meets the performance requirement indicated in the business case
+- List in bullet points the dashboard pages, and for each page: describe the content (such as text, plot, widgets etc) and, when applicable, indicate the business requirement that a given page is answering.
 
 The plot should fit in with the scope of the dashboard page. It is not expected that a given plot is disconnected from the main purpose of that dashboard page. For example, consider the “Heritage Housing Issues” dataset has a “project summary” page and displays a disconnected histogram for SalePrice distribution.
