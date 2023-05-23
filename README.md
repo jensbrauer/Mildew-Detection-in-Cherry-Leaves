@@ -21,9 +21,9 @@ The purpose of this project is to save time in this process. The IT team suggest
 * **Hypothesis 2:** It is suspected that a convolutional neural network (CNN) for image classification, can predict if a cherry leaf is healthy or have powdery mildew.
   * Building, training and testing a CNN using the dataset mentioned above, will help to invastigate it.
     * If this can be confirmed, a dashboard can be deployed and provide end user support in the leaf inspection process.
-* **Hypothesis 3:** It is suspected that model performance and the CNN:s ability to predict is dependant on image quality.
-  * Displaying how "confident" the model is in each prediction and visually examining the samples where the model shows a lower confidence, will help investigate it. 
-  	* If this can be confirmed. An image montage could be created to give visual instructions to an end user, on the quality standards that should be met to help model prediction performance on live data.
+* **Hypothesis 3:** It is suspected that the probability that a softmax activation function assigns to a label is represantative of the probability that the prediction is correct. I. e. the lower the probability that the model outputs, the higher the risk is for missclassification.
+  * Studying the distribution of predictions in ranges of probability, and distribution of false predictions in ranges of probability, can help investigate it.
+    * If this can be confirmed, it might be feasible for the users to "resample" when feeding the model live data, if the model output is based on a lower probability.
 
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
@@ -39,7 +39,7 @@ The purpose of this project is to save time in this process. The IT team suggest
 * **Business Requirement 2**:  Classification
 	* We will augment a subset of the dataset provided by the client, to create more data for training a model. 
 	* We will build a model using a convolutional neural network (CNN) and train it using the training dataset, to determine if a cherry leaf has powdery mildew or not.
-	* We will build the model to output a level of certainty in its classification.
+	* We will build the model to output a probability and examine the distribution of assigned probabilities and where false predictions are located in that distirbution, in order to understand its significans.
 	* In training the model, we will withold a subset of the provided dataset, in order to evaluate the model, using "unseen" data, in order to ensure we meet the clients request for a minimum of 97% prediction accuracy.
 	* We will generate reports presenting the CNN architecture and the model performance.
 
