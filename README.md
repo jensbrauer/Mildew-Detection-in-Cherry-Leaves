@@ -65,36 +65,36 @@ The purpose of this project is to save time in this process. The IT team suggest
 
 ### Page 1: Quick Project Summary
 * Quick project summary
-	* General Information
-		* Malaria is a parasitic infection transmitted by the bite of infected female Anopheles mosquitoes.
-		* A blood smear sample is collected, mixed with a reagent and examined in the microscope. Visual criteria are used to detect malaria parasites. 
-		* According to WHO, in 2019, there were an estimated 229 million cases of malaria worldwide and an estimated 409 thousand deaths due to this diseease. Children <5 years are the most vulnerable group, accounting for 67% (274 thousand) of all malaria deaths worldwide in 2019.
-	* Project Dataset
-		* The available dataset contains 5643 out of +27 thousand images taken from blood smear workflow (when a drop of blood it taken on a glass slide) of cells that are parasitized or uninfected with malaria.
-	* Link to addition ainformation
+    * General Information
+        * Powdery mildew is a fungal disease that affects a wide range of plants and cherry leaves included.
+        * The process to verify if a given cherry tree contains powdery mildew involves an employee spending around 30 minutes in a tree, taking a few samples of leaves and verifying visually if the leaf tree has powdery mildew or not.
+        * Managing thousands of cherry trees located in multiple farms across the country requires a scalable solution to ensure that the market is not supplied with a product of compromised quality.
 	* Business requirements
-		*  The client is interested to have a study to visually differentiate between a parasite contained and uninfected cell.
-		*  **Outline the conclusions of the data analytics task undertaken that helps answer a given business requirement in the appropriate section on the dashboard page.**
-		*  The client is interested to tell whether a given cell contains malaria parasite or not.
-		*  **Provide a clear statement on the dashboard to inform the user that the ML model/pipeline has been successful (or otherwise) in answering the predictive task it was intended to address.**
+		*  1. The client is interested to have a study to visually differentiate between a parasite contained and uninfected cell.
+			*  **Outline the conclusions of the data analytics task undertaken that helps answer a given business requirement in the appropriate section on the dashboard page.**
+		*  2. The client is interested to tell whether a given cell contains malaria parasite or not.
+			*  **Provide a clear statement on the dashboard to inform the user that the ML model/pipeline has been successful (or otherwise) in answering the predictive task it was intended to address.**
+    * Project Dataset
+        * The dataset available for the project contains 4208 images in .jpeg format, taken from the client's crop fields. The dataset include two classes of images with 2104 images each. The classes are labeled 'Powdery Mildew' for images of leaves that are infected with the fungal desease and 'Healthy' for images of leaves that are uninfected.
+		* Link to the dataset
+	* Findings and Results
 
-### Page 2: Cells Visualizer
+### Page 2: Method and Results
+* Bloack for each project hypothesis, describe the conclusion and how you validated.
+Provide a clear statement on the dashboard to inform the user that the ML model/pipeline has been successful (or otherwise) in answering the predictive task it was intended to address.
+
+### Page 3: Cells Visualizer
 * It will answer business requirement 1
 	* Checkbox 1 - Difference between average and variability image
 	* Checkbox 2 - Differences between average parasitized and average uninfected cells
 	* Checkbox 3 - Image Montage
 
-### Page 3: Malaria Detector
+### Page 4: Malaria Detector
 * Business requirement 2 information - "The client is interested to tell whether a given cell contains malaria parasite or not."
 * Link to download a set of parasite contained and uninfected cell images for live prediction.
 * User Interface with a file uploader widget. The user should upload multiple malaria cell image. It will display the image and a prediction statement, indicating if the cell is infected or not with malaria and the probability associated with this statement. 
 * Table with image name and prediction results.
 * Download button to download table.
-
-### Page 4: Project Hypothesis and Validation
-* Bloack for each project hypothesis, describe the conclusion and how you validated.
-Provide a clear statement on the dashboard to inform the user that the ML model/pipeline has been successful (or otherwise) in answering the predictive task it was intended to address.
-
 
 ### Page 5: ML Performance Metrics
 * Label Frequencies for Train, Validation and Test Sets
