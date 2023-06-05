@@ -17,7 +17,7 @@ def summary_results_body():
             f" *A visual study was conducted including plotting a set of samples"
             f" for each class as well as plotting the avarage and variability for"
             f" a subset of images in each class."
-            f' The results can be found in the "Visual Study"-page through the menu*\n\n'
+            f' The results can be found in the "Cherry Leaves Visualization"-page through the menu*\n\n'
             
             f"**Conclusions / Fingings**\n\n"
             f" * Samples of images from each class plotted against each other seem "
