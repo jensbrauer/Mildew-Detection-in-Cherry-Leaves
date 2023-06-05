@@ -1,34 +1,60 @@
 import streamlit as st
 
 def summary_results_body():
-    st.write("### Summary & Results")
-
+    st.header("Summary & Results")
     st.info(
-        f"**General Information**\n"
-        f"* Powdery mildew is a fungal disease that affects cherry trees, and a wide range of other plants.\n"
-        f"* The process to verify if a given cherry tree is infected with powdery mildew or not "
-        f"involves an employee, taking a few samples of leaves from the tree and visually examining them.\n"
-        f"* For a company, managing thousands of cherry trees located in multiple farms across the country "
-        f"requires a scalable solution to ensure that the market is not supplied "
-        f"with a product of compromised quality. \n")
+        f"To meet the business requirements for the project, 3 hypothesis related to the "
+        f"business requirements where formulated and tested. Click the hypotheses below "
+        f"to read more about how they where tested and what can be concluded based on the results.")
 
-    st.success(
-        f"**Business Requirements**\n"
-        f"* 1 - The client is interested in having a study to differentiate "
-        f"a parasitized and uninfected cell visually.\n"
-        f"* 2 - The client is interested in telling whether a given cell contains a malaria parasite or not. "
-        )
+# Business Rquirements 1
+    st.write(f"### Business rquirement 1 - Satisfied\n"
+            f"*The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.*\n")
 
-    st.info(
-        f"**Project Dataset**\n"
-        f"* The dataset available for the project contains 4208 images in .jpeg format, "
-        f" taken from the client's crop fields. The dataset include two classes of images "
-        f"with 2104 images each. The classes are labeled 'Powdery Mildew' for images of leaves "
-        f"that are infected with the fungal desease and 'Healthy' for images of leaves "
-        f"that are uninfected.\n"
-        f"* The dataset can be found at "
-        f"[this Kaggle endpoint](https://www.kaggle.com/codeinstitute/cherry-leaves).")
+    if st.checkbox("-- HYPOTHESIS 1 --  Cherry leaf with powdery mildew have visual signs that diffirentiate them from healthy cherry leaves."):
+        st.success(
+            f"**General Information**\n\n"
+            f" *A visual study was conducted including plotting a set of samples"
+            f" for each class as well as plotting the avarage and variability for"
+            f" a subset of images in each class."
+            f' The results can be found in the "Visual Study"-page through the menu*\n\n'
+            
+            f"**Conclusions / Fingings**\n\n"
+            f" * Samples of images from each class plotted against each other seem "
+            f" to strongly indicate a visual difference between the classes\n"
+            f" * A subtle but noticable visual difference between the classes can"
+            f" be found when studying image avarage and image variability"
+            )
 
-    st.write(
-        f"* More information about the project can be found in the "
-        f"[Project README file](https://github.com/jensbrauer/Mildew-Detection-in-Cherry-Leaves/blob/main/README.md).")
+#Business Rquirement 2
+    st.write(f"### Business rquirement 2 - Satisfied\n"
+            f"*The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.*")
+
+    if st.checkbox("-- HYPOTHESIS 2 --  A convolutional neural network (CNN) for image classification, can predict if a cherry leaf is healthy or have powdery mildew."):
+        st.success(
+            f"**General Information**\n\n"
+            f" *A CNN was buildt, trained and evaluated using the dataset provided by the client."
+            f" Technical information about model architecture, data augmentation, performance etc."
+            f' can be found in the "Modelling & Evaluation"-page through the left hand side menu.*\n\n'
+            
+            f"**Conclusions / Fingings**\n\n"
+            f" * The hypothesis is confirmed by the model performance scores shown"
+            f" when it was tested with data that is excluded in model training")
+
+    if st.checkbox("-- HYPOTHESIS 3 --  The probability that the model assigns to a label is represantative of the probability that the prediction is correct."):
+        st.success(
+            f"**General Information**\n\n"
+            f" *The model that was buildt, outputs two decimal numbers for each image."
+            f" that sum up to 1. These numbers represent the probability that the image"
+            f" belong to a given class. The class with the higher probability assign to it"
+            f" will be the class assigned to the prediction."
+            f" A statistical analysis was conducted to understand if false predictions"
+            f" correlated to lower probability for the predicted class."
+            f" Technical information about the analysis can be found in the"
+            f' "Model output"-page through the left hand side menu.*\n\n'
+            
+            f"**Conclusions / Fingings**\n\n"
+            f" * when it was tested with data that is excluded in model training")
+        st.error(
+            f" __NOTE:__ *Due to high model performance there are few false predictions to study"
+            f" I.e the findings are weak and the analysis can not reliably confirm the hypothesis*\n\n")
