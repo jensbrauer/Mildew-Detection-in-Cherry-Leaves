@@ -77,10 +77,9 @@ The purpose of this project is to save time in this process. The IT team suggest
     * Project Dataset
         * The dataset available for the project contains 4208 images in .jpeg format, taken from the client's crop fields. The dataset include two classes of images with 2104 images each. The classes are labeled 'Powdery Mildew' for images of leaves that are infected with the fungal desease and 'Healthy' for images of leaves that are uninfected.
 		* Link to the dataset
-	* Findings and Results
 
-### Page 2: Method and Results
-* Bloack for each project hypothesis, describe the conclusion and how you validated.
+### Page 2: Summary and Results
+* Block for each project hypothesis, describe the conclusion and how you validated.
 Provide a clear statement on the dashboard to inform the user that the ML model/pipeline has been successful (or otherwise) in answering the predictive task it was intended to address.
 
 ### Page 3: Cells Visualizer
