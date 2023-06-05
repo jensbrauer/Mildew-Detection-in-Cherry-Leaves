@@ -17,24 +17,12 @@ def cherry_leaves_visualization_body():
         f" a healthy cherry leaf from one with powdery mildew.*"
         )
 
-
     if st.checkbox('Label Samples'):
-        st.info(
-            f"**Business Requirements**\n"
-            f"* 1 - The client is interested in having a study to differentiate "
-            f"a parasitized and uninfected cell visually.\n"
-            f"* 2 - The client is interested in telling whether a given cell contains a malaria parasite or not. "
-            )
-            
         label = st.radio('Select what class you want to view image samples from:', ('Healthy', 'Powdery Mildew'))
         if label == 'Healthy':
-            avg_healthy = plt.imread(f"outputs/deployed_version/img_montage_healthy.png")
-            st.image(avg_healthy, caption='leafs_healthy - Average and Variability')
+            display_label_samples('healthy')
         elif label == 'Powdery Mildew':
-            avg_powdery_mildew = plt.imread(f"outputs/deployed_version/img_montage_powdery_mildew.png")
-            st.image(avg_powdery_mildew, caption='leafs_powdery_mildew - Average and Variability')
-        else:
-            st.info('re')
+            display_label_samples('powdery_mildew')
 
 
     if st.checkbox('Average and Variability'):
@@ -56,5 +44,31 @@ def cherry_leaves_visualization_body():
 
 
 def display_label_samples(label):
-    return 
+    montage_rows = 2
+    montage_cols = 3
+    figsize=(10,7)
+
+    sns.set_style("white")
+    img_path = '/workspace/Mildew-Detection-in-Cherry-Leaves/inputs/cherry_leaves_dataset/cherry-leaves/validation'
+
+    print(f'Sample data from label: {label}')
+    imgs_list = os.listdir(img_path + '/' + label)
+    imgs_sample = random.sample(imgs_list, montage_rows * montage_cols)
+
+    # create list of axes indices based on montage_rows and montage_cols
+    pos_index = []
+    for i in range(0, montage_rows):
+        for j in range(0, montage_cols):
+            pos_index.append([i, j])
+
+    # create a Figure and display images
+    fig, axes = plt.subplots(nrows=montage_rows,ncols=montage_cols, figsize=figsize)
+    for k in range(0, len(imgs_sample)):
+        img = imread(img_path + '/' + label + '/' + imgs_sample[k], 0)
+        img_shape = img.shape
+        axes[pos_index[k][0], pos_index[k][1]].imshow(img)
+        axes[pos_index[k][0], pos_index[k][1]].set_xticks([])
+        axes[pos_index[k][0], pos_index[k][1]].set_yticks([])
+    plt.tight_layout()
+    st.pyplot(fig=fig)
 
