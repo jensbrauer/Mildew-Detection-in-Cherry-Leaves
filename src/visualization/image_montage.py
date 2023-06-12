@@ -19,7 +19,7 @@ def display_label_samples(label):
     figsize=(10,7)
 
     sns.set_style("white")
-    img_path = '/workspace/Mildew-Detection-in-Cherry-Leaves/inputs/cherry_leaves_dataset/cherry-leaves/validation'
+    img_path = 'workspace/Mildew-Detection-in-Cherry-Leaves/inputs/cherry_leaves_dataset/cherry-leaves/validation'
 
     print(f'Sample data from label: {label}')
     imgs_list = os.listdir(img_path + '/' + label)
@@ -43,7 +43,7 @@ def display_label_samples(label):
     st.pyplot(fig=fig)
 
 def display_model_arc():
-    model = load_model('/workspace/Mildew-Detection-in-Cherry-Leaves/outputs/deployed_version/mildew_detection_model.h5')
+    model = load_model('workspace/Mildew-Detection-in-Cherry-Leaves/outputs/deployed_version/mildew_detection_model.h5')
     # Redirect stdout to a variable
     stdout = sys.stdout
     sys.stdout = StringIO()
