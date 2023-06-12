@@ -9,6 +9,9 @@ from matplotlib.image import imread
 import itertools
 import random
 
+from tensorflow.keras.models import load_model
+import sys
+from io import StringIO
 
 def display_label_samples(label):
     montage_rows = 2
@@ -39,3 +42,15 @@ def display_label_samples(label):
     plt.tight_layout()
     st.pyplot(fig=fig)
 
+def display_model_arc():
+    model = load_model('/workspace/Mildew-Detection-in-Cherry-Leaves/outputs/deployed_version/mildew_detection_model.h5')
+    # Redirect stdout to a variable
+    stdout = sys.stdout
+    sys.stdout = StringIO()
+    # Display model summary
+    model.summary()
+    # Get the console output
+    output = sys.stdout.getvalue()
+    # Reset stdout
+    sys.stdout = stdout
+    return(output)
