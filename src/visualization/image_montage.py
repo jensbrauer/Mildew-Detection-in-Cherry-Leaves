@@ -43,7 +43,7 @@ def display_label_samples(label):
     st.pyplot(fig=fig)
 
 def display_model_arc():
-    model = load_model('workspace/Mildew-Detection-in-Cherry-Leaves/outputs/deployed_version/mildew_detection_model.h5')
+    model = load_model('outputs/deployed_version/mildew_detection_model.h5')
     # Redirect stdout to a variable
     stdout = sys.stdout
     sys.stdout = StringIO()

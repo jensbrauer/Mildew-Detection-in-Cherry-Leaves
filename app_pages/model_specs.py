@@ -50,7 +50,7 @@ def model_specs_body():
 
 #Output
     if st.checkbox('Model Output'):
-        f = open('workspace/Mildew-Detection-in-Cherry-Leaves/outputs/current_output/proba_report.json')
+        f = open('outputs/current_output/proba_report.json')
         probability_report = json.load(f)
         reports = ['Training', 'Validation', 'Test']
         for report in reports:
