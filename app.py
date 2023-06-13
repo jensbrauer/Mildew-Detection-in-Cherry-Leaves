@@ -8,7 +8,7 @@ from app_pages.cherry_leaves_visualization import cherry_leaves_visualization_bo
 from app_pages.mildew_detector import mildew_detector_body
 from app_pages.model_specs import model_specs_body
 
-app = MultiPage(app_name="Mildew Detector")  # Create an instance of the app
+app = MultiPage(app_name="Mildew Detector", model_version="deployed_version")  # Create an instance of the app
 
 # Add your app pages here using .add_page()
 app.add_page("Background", project_background_body)

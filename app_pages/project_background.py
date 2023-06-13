@@ -1,6 +1,6 @@
 import streamlit as st
 
-def project_background_body():
+def project_background_body(model_version):
     st.header("Project Background")
 
     st.write(

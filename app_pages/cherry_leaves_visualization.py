@@ -6,7 +6,7 @@ from matplotlib.image import imread
 
 from src.visualization.image_montage import display_label_samples
 
-def cherry_leaves_visualization_body():
+def cherry_leaves_visualization_body(model_version):
     st.header("Cherry Leaves Visualization")
 
     st.write(

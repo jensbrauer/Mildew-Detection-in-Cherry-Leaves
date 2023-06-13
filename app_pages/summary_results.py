@@ -1,6 +1,6 @@
 import streamlit as st
 
-def summary_results_body():
+def summary_results_body(model_version):
     st.header("Summary & Results")
     st.info(
         f"To meet the business requirements for the project, 3 hypothesis related to the "
