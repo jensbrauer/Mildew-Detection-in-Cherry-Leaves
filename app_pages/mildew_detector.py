@@ -5,7 +5,7 @@ import pandas as pd
 
 from src.machine_learning.machine_learning import (
                                                     size_img_for_model,
-                                                    load_model_and_predict
+                                                    predict
                                                     )
 
 
@@ -28,7 +28,7 @@ def mildew_detector_body(model_version):
                 
                 img_array = np.array(img_pil)
                 st.image(size_img_for_model(img=img_pil)[1], caption=f"Image name: {img.name}")
-                prediction = load_model_and_predict(size_img_for_model(img=img_pil)[0])
+                prediction = predict(size_img_for_model(img=img_pil)[0])
                 st.info(prediction[0])
                 st.warning(prediction[1])
                 st.write('---')

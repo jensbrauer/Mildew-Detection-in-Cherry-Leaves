@@ -20,7 +20,7 @@ def size_img_for_model(img):
 
     return model_input_img, display_input_img
 
-def load_model_and_predict(img):
+def predict(img):
 
     model = load_model("outputs/deployed_version/mildew_detection_model.h5")
     prediction = model.predict(img)[0, 0]
