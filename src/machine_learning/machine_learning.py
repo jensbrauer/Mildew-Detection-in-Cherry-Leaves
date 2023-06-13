@@ -19,3 +19,12 @@ def size_img_for_model(img):
     model_input_img = np.expand_dims(img_model_resized, axis=0)/255
 
     return model_input_img, display_input_img
+
+def load_model_and_predict(img):
+
+    model = load_model("outputs/deployed_version/mildew_detection_model.h5")
+    prediction = model.predict(img)[0, 0]
+    if prediction > 0.5:
+        return 'Healthy', prediction
+    else:
+        return 'Powdery_Mildew', (1 - prediction)
