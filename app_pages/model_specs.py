@@ -59,6 +59,6 @@ def model_specs_body():
                     f"75% of false predictions show a probability lower than {probability_report[report]['threshold']}%.\n\n"
                     f"{probability_report[report]['ratio']}% of all predictions show a probability lower than {probability_report[report]['threshold']}.\n\n"
                     f"I.e., 75% of false predictions are found in the {probability_report[report]['ratio']}% of predictions with lowest probability.")
-            distribution_plot = plt.imread(f'/workspace/Mildew-Detection-in-Cherry-Leaves/outputs/current_output/proba_dist_{report.lower()}.png')
+            distribution_plot = plt.imread(f'outputs/current_output/proba_dist_{report.lower()}.png')
             st.image(distribution_plot, caption=f'Probabiliaty distribution for {report} data.')
     st.write("---")
