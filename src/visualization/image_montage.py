@@ -19,10 +19,10 @@ def display_label_samples(label):
     figsize=(10,7)
 
     sns.set_style("white")
-    img_path = 'workspace/Mildew-Detection-in-Cherry-Leaves/inputs/cherry_leaves_dataset/cherry-leaves/validation'
+    img_path = 'inputs/cherry_leaves_dataset/cherry-leaves/validation/'
 
     print(f'Sample data from label: {label}')
-    imgs_list = os.listdir(img_path + '/' + label)
+    imgs_list = os.listdir(img_path + label)
     imgs_sample = random.sample(imgs_list, montage_rows * montage_cols)
 
     # create list of axes indices based on montage_rows and montage_cols
