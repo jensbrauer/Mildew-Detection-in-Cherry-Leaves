@@ -22,11 +22,12 @@ def mildew_detector_body(model_version):
         results = []
         for img in img_dump:
             img_pil = (Image.open(img))
-            img_array = np.array(img_pil)
+
             resized_images = size_img_for_model(img=img_pil)
+            st.info(f'{len(resized_images)}')
             prediction = predict(resized_images[0])
             df_report = df_report.append({"Name":img.name, 'Prediction': prediction[0], 'Probability': prediction[1] }, ignore_index=True)
-            results.append([resized_images[0], img.name, prediction[0], prediction[1]])
+            results.append([resized_images[1], img.name, prediction[0], prediction[1]])
 
         st.header('View results as:')
         format = st.radio('Select in what format you want to view the results:', ('Table', 'Images'))
@@ -38,7 +39,7 @@ def mildew_detector_body(model_version):
 
         elif format == 'Images':
             for item in results:
-                st.image(item[0], caption=f"Image name: {item[1]}")
+                st.image(item[0])
                 st.info(item[2])
                 st.warning(item[3])
                 st.write('---')

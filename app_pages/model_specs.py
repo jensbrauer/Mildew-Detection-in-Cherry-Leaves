@@ -1,5 +1,5 @@
 import streamlit as st
-import json
+import pickle
 
 import matplotlib.pyplot as plt
 from matplotlib.image import imread
@@ -27,7 +27,7 @@ def model_specs_body(model_version):
         st.error(f'NOTE: Images were resized to a ratio of 100 by 100 pixels to reduce model size.')
         st.write("---")
 
-#Training
+#Architecture
     if st.checkbox('Model Architecture'):
         st.text(display_model_arc())
         st.write("---")
@@ -43,15 +43,21 @@ def model_specs_body(model_version):
             
 #Evaluation
     if st.checkbox('Model Evaluation'):
-        with open("outputs/current_output/evaluation_reports.txt", "r") as file:
-            evaluation_summary = file.read()
-        st.text(evaluation_summary)
+        with open("outputs/current_output/evaluation_report.pkl", 'rb') as file:
+            evaluation_summary = pickle.load(file)
+#        with open("outputs/current_output/evaluation_reports.txt", "r") as file:
+#            evaluation_summary = file.read()
+        st.write(f'* Loss: {round(evaluation_summary["Loss"], 3)}\n'
+                f'* Accuracy: {round(evaluation_summary["Accuracy"], 3)}')
         st.write("---")
 
 #Output
     if st.checkbox('Model Output'):
-        f = open('outputs/current_output/proba_report.json')
-        probability_report = json.load(f)
+        
+        with open("outputs/current_output/proba_report.pkl", 'rb') as file:
+            probability_report = pickle.load(file)
+        #f = open('outputs/current_output/proba_report.json')
+        #probability_report = json.load(f)
         reports = ['Training', 'Validation', 'Test']
         for report in reports:
             st.write(f"### Probability Report - {report} Data")
