@@ -12,7 +12,7 @@ from src.machine_learning.machine_learning import (
 
 def mildew_detector_body(model_version):
     st.header("Mildew Detector")
-    st.info(model_version)
+    st.info('Find cherry leaf images for testing [here](https://www.kaggle.com/codeinstitute/cherry-leaves).')
     
     img_dump = st.file_uploader('Upload one or more cherry leaves for mildew diagnostics.',
                                         type='jpg',accept_multiple_files=True)
