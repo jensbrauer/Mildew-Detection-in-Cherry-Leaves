@@ -3,8 +3,8 @@ import streamlit as st
 def summary_results_body(model_version):
     st.header("Summary & Results")
     st.info(
-        f"To meet the business requirements for the project, 3 hypothesis related to the "
-        f"business requirements where formulated and tested. Click the hypotheses below "
+        f"To organize the project workflow towards meeting the business requirements, 3 hypothesis, "
+        f"each related to a requirement, where formulated and tested. Click the hypotheses below "
         f"to read more about how they where tested and what can be concluded based on the results.")
 
 # Business Rquirements 1
@@ -30,6 +30,7 @@ def summary_results_body(model_version):
             f" __NOTE:__ * The sense that classes are different based on raw samples should be considered enough "
             f" to support a likelyhood of success in building an ML model capable of classification.*"
             )
+        st.write('---')
 
 # Business Rquirement 2
     st.write(f"#### Business rquirement 2 - Satisfied\n"
@@ -47,6 +48,7 @@ def summary_results_body(model_version):
             f"  in model training meet the business requirement.")
         st.success(
             f"  __The hypothesis is confirmed.__")
+        st.write('---')
 
     if st.checkbox("-- HYPOTHESIS 3 --  The model can give users a probability score that is represantative of the probability that the prediction is correct."):
         st.info(
@@ -67,3 +69,4 @@ def summary_results_body(model_version):
             f" confirm or reject the hypothesis")
         st.warning(
             f" __The hypothesis can not be confirmed or rejected based on these studies.__\n\n")
+        st.write('---')
