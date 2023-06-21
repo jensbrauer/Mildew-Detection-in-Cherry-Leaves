@@ -42,8 +42,8 @@ def display_label_samples(label):
     plt.tight_layout()
     st.pyplot(fig=fig)
 
-def display_model_arc():
-    model = load_model('outputs/deployed_version/mildew_detection_model.h5')
+def display_model_arc(model_version):
+    model = load_model(f'outputs/{model_version}/mildew_detection_model.h5')
     # Redirect stdout to a variable
     stdout = sys.stdout
     sys.stdout = StringIO()

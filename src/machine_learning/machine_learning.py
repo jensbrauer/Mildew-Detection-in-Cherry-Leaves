@@ -27,9 +27,9 @@ def size_img_for_model(img):
 
     return model_input_img , display_input_img
 
-def predict(img):
+def predict(img, model_version):
 
-    model = load_model("outputs/deployed_version/mildew_detection_model.h5")
+    model = load_model(f"outputs/{model_version}/mildew_detection_model.h5")
     prediction = model.predict(img)[0, 0]
     if prediction > 0.5:
         return 'Healthy', prediction

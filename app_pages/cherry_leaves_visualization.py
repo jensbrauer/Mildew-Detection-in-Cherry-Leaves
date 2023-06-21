@@ -32,8 +32,8 @@ def cherry_leaves_visualization_body(model_version):
         st.info(f'Below, plots show a calculated Avarage and Variability of image samples from each class.\n\n'
                 f'The idea behind this study is to reveal patterns in color values that indicate a'
                 f' charicaristic of the class.')
-        avg_healthy = plt.imread(f"outputs/deployed_version/img_avg_and_varblty_healthy.png")
-        avg_powdery_mildew = plt.imread(f"outputs/deployed_version/img_avg_and_varblty_powdery_mildew.png")
+        avg_healthy = plt.imread(f"outputs/{model_version}/img_avg_and_varblty_healthy.png")
+        avg_powdery_mildew = plt.imread(f"outputs/{model_version}/img_avg_and_varblty_powdery_mildew.png")
 
         st.image(avg_healthy, caption='leafs_healthy - Average and Variability')
         st.image(avg_powdery_mildew, caption='leafs_powdery_mildew - Average and Variability')
@@ -44,7 +44,7 @@ def cherry_leaves_visualization_body(model_version):
         st.info(f'Below, the Avarage for each class studied above is plotted toghether with '
                 f'an additional plot showing the calculated difference between them (Avarage1 - Avarage2).\n\n'
                 f'The idea is to try and reveal any color value charicaristic that seperate the classes.')
-        avg_difference1 = plt.imread(f"outputs/deployed_version/diff_in_label_img_avg.png")
+        avg_difference1 = plt.imread(f"outputs/{model_version}/diff_in_label_img_avg.png")
         st.image(avg_difference1, caption='leafs_healthy - Average and Variability')
         st.write('---')
 
