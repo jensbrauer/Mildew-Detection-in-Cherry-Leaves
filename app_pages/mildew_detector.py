@@ -30,7 +30,7 @@ def mildew_detector_body(model_version):
         for img in img_dump:
             img_pil = (Image.open(img))
 
-            resized_images = size_img_for_model(img=img_pil)
+            resized_images = size_img_for_model(img_pil, model_version)
             st.info(f'{len(resized_images)}')
             prediction = predict(resized_images[0], model_version)
             df_report = df_report.append({"Name":img.name, 'Prediction': prediction[0], 'Probability': prediction[1] }, ignore_index=True)

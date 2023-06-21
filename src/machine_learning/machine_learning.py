@@ -6,22 +6,18 @@ from tensorflow.keras.models import load_model
 from PIL import Image
 import pickle
 
-def size_img_for_model(img):
+def size_img_for_model(img, model_version):
     """
     Reshape image to average image size
     """
-
-
-
     img_display_shape = (200, 200, 3)
     img_display_resized = img.resize((img_display_shape[1], img_display_shape[0]), Image.LANCZOS)
     display_input_img = np.expand_dims(img_display_resized, axis=0)/255
     
 
-    with open("outputs/current_output/image_size.pkl", 'rb') as file:
+    with open(f"outputs/{model_version}/image_size.pkl", 'rb') as file:
         img_model_shape = pickle.load(file)
 
-    #img_model_shape = (75, 75, 3)
     img_model_resized = img.resize((img_model_shape[1], img_model_shape[0]), Image.LANCZOS)
     model_input_img = np.expand_dims(img_model_resized, axis=0)/255
 
