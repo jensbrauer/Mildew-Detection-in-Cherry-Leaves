@@ -7,8 +7,8 @@ from matplotlib.image import imread
 
 from src.visualization.image_montage import display_model_arc
 
-def model_specs_body(model_version):
-    st.header("Model Specifications")
+def ml_details_body(model_version):
+    st.header("Machine Learning Details")
 #data information
     if st.checkbox('View Data Preprocessing Section'):
         st.write('### Data Preprocessing')

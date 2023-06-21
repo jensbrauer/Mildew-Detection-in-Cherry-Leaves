@@ -8,7 +8,7 @@ def summary_results_body(model_version):
         f"to read more about how they where tested and what can be concluded based on the results.")
 
 # Business Rquirements 1
-    st.write(f"### Business rquirement 1 - Satisfied\n"
+    st.write(f"#### Business rquirement 1 - Satisfied\n"
             f"*The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.*\n")
 
     if st.checkbox("-- HYPOTHESIS 1 --  Cherry leaf with powdery mildew have visual signs that diffirentiate them from healthy cherry leaves."):
@@ -21,13 +21,18 @@ def summary_results_body(model_version):
             
             f"**Conclusions / Fingings**\n\n"
             f" * Samples of images from each class plotted against each other seem "
-            f" to strongly indicate a visual difference between the classes\n"
-            f" * A subtle but noticable visual difference between the classes can"
-            f" be found when studying image avarage and image variability"
+            f" to indicate a visual difference that we as humans can pick up intuitively.\n"
+            f" * A barely noticable visual difference between the classes can"
+            f" be found when studying image avarage and image variability.\n")
+
+        st.warning(
+            f" __The hypothesis can not be confirmed or rejected based on these studies.__\n\n"
+            f" __NOTE:__ * The sense that classes are different based on raw samples should be considered enough "
+            f" to support a likelyhood of success in building an ML model capable of classification.*"
             )
 
 # Business Rquirement 2
-    st.write(f"### Business rquirement 2 - Satisfied\n"
+    st.write(f"#### Business rquirement 2 - Satisfied\n"
             f"*The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.*")
 
     if st.checkbox("-- HYPOTHESIS 2 --  A convolutional neural network (CNN) for image classification, can predict if a cherry leaf is healthy or have powdery mildew."):
@@ -35,13 +40,15 @@ def summary_results_body(model_version):
             f"**General Information**\n\n"
             f" *A CNN was buildt, trained and evaluated using the dataset provided by the client."
             f" Technical information about model architecture, data augmentation, performance etc."
-            f' can be found in the "Modelling & Evaluation"-page through the left hand side menu.*\n\n'
+            f' can be found on the "Machine Learning Details"-page through the left hand side menu.*\n\n'
             
             f"**Conclusions / Fingings**\n\n"
-            f" * The hypothesis is confirmed by the model performance scores shown"
-            f" when it was tested with data that is excluded in model training")
+            f" * The model performance scores shown when tested with data that is excluded,"
+            f"  in model training meet the business requirement.")
+        st.success(
+            f"  __The hypothesis is confirmed.__")
 
-    if st.checkbox("-- HYPOTHESIS 3 --  The probability that the model assigns to a label is represantative of the probability that the prediction is correct."):
+    if st.checkbox("-- HYPOTHESIS 3 --  The model can give users a probability score that is represantative of the probability that the prediction is correct."):
         st.info(
             f"**General Information**\n\n"
             f" *The model that was buildt, outputs two decimal numbers for each image."
@@ -50,11 +57,13 @@ def summary_results_body(model_version):
             f" will be the class assigned to the prediction."
             f" A statistical analysis was conducted to understand if false predictions"
             f" correlated to lower probability for the predicted class."
-            f" Technical information about the analysis can be found in the"
-            f' "Model output"-page through the left hand side menu.*\n\n'
+            f' Technical information about the analysis can be found under "Model Output" on the'
+            f' "Machine Learning Details"-page through the left hand side menu.*\n\n'
             
             f"**Conclusions / Fingings**\n\n"
-            f" * when it was tested with data that is excluded in model training")
-        st.error(
-            f" __NOTE:__ *Due to high model performance there are few false predictions to study"
-            f" I.e the findings are weak and the analysis can not reliably confirm the hypothesis*\n\n")
+            f" * Due to high model performance there are few false predictions to study."
+            f" Though the metrics seem to show some indication of confirming the hypothesis,"
+            f" the support for the findings are extremely weak and the analysis can not reliably"
+            f" confirm or reject the hypothesis")
+        st.warning(
+            f" __The hypothesis can not be confirmed or rejected based on these studies.__\n\n")
