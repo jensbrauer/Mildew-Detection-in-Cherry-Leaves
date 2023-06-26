@@ -18,7 +18,7 @@ def mildew_detector_body(model_version):
         f'both with filenames, predictions and assigned probabilities included.\n\n'
         f'For more information on how the output can be interpreted, see the "Model Output"-section '
         f'on the "Machine Learning Details"-page.\n\n'
-        f'Find cherry leaf images for testing [here](https://www.kaggle.com/codeinstitute/cherry-leaves).')
+        f'__*Find cherry leaf images for testing [here](https://www.kaggle.com/codeinstitute/cherry-leaves).*__')
     st.write('---')
     
     img_dump = st.file_uploader('Upload one or more cherry leaf .jpeg images for powdery mildew diagnostics.',
@@ -31,10 +31,9 @@ def mildew_detector_body(model_version):
             img_pil = (Image.open(img))
 
             resized_images = size_img_for_model(img_pil, model_version)
-            st.info(f'{len(resized_images)}')
             prediction = predict(resized_images[0], model_version)
             df_report = df_report.append({"Name":img.name, 'Prediction': prediction[0], 'Probability': prediction[1] }, ignore_index=True)
-            results.append([resized_images[1], img.name, prediction[0], prediction[1]])
+            results.append([resized_images[1], img.name, prediction[0], round(prediction[1], 2)])
 
         st.header('View results as:')
         format = st.radio('Select in what format you want to view the results:', ('Table', 'Images'))
@@ -46,7 +45,15 @@ def mildew_detector_body(model_version):
 
         elif format == 'Images':
             for item in results:
-                st.image(item[0])
-                st.info(item[2])
-                st.warning(item[3])
-                st.write('---')
+                if item[2] == 'Powdery_Mildew':
+                    st.image(item[0])
+                    st.error(f'__File:__ {item[1]}\n\n'
+                            f'__Predicted Class:__ {item[2]}\n\n'
+                            f'__Assigned Probability:__ {item[3]}')
+                    st.write('---')
+                else:
+                    st.image(item[0])
+                    st.success(f'__File:__ {item[1]}\n\n'
+                            f'__Predicted Class:__ {item[2]}\n\n'
+                            f'__Assigned Probability:__ {item[3]}')
+                    st.write('---')

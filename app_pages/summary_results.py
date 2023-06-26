@@ -40,7 +40,7 @@ def summary_results_body(model_version):
         st.info(
             f"**General Information**\n\n"
             f" *A CNN was buildt, trained and evaluated using the dataset provided by the client."
-            f" Technical information about model architecture, data augmentation, performance etc."
+            f" Information about training history, data preprocessing and model performance etc."
             f' can be found on the "Machine Learning Details"-page through the left hand side menu.*\n\n'
             
             f"**Conclusions / Fingings**\n\n"

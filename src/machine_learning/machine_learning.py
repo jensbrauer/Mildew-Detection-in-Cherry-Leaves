@@ -28,7 +28,7 @@ def predict(img, model_version):
     model = load_model(f"outputs/{model_version}/mildew_detection_model.h5")
     prediction = model.predict(img)[0, 0]
     if prediction > 0.5:
-        return 'Healthy', prediction
+        return 'Healthy', (0 + prediction)
     else:
         return 'Powdery_Mildew', (1 - prediction)
 
@@ -42,11 +42,11 @@ import joblib
 
 def download_report(df):
 
-    datetime_now = datetime.now().strftime("%d%b%Y_%Hh%Mmin%Ss")
+    report_name = datetime.now().strftime('Mildew_Report_' + "%d%b%Y_%Hh%Mmin%Ss")
     csv = df.to_csv().encode()
     b64 = base64.b64encode(csv).decode()
     href = (
-        f'<a href="data:file/csv;base64,{b64}" download="Report {datetime_now}.csv" '
+        f'<a href="data:file/csv;base64,{b64}" download="{report_name}.csv" '
         f'target="_blank">Download Report as CSV</a>'
     )
     return href
