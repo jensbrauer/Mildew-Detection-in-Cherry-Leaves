@@ -33,7 +33,7 @@ def mildew_detector_body(model_version):
             resized_images = size_img_for_model(img_pil, model_version)
             prediction = predict(resized_images[0], model_version)
             df_report = df_report.append({"Name":img.name, 'Prediction': prediction[0], 'Probability': prediction[1] }, ignore_index=True)
-            results.append([resized_images[1], img.name, prediction[0], round(prediction[1], 2)])
+            results.append([resized_images[1], img.name, prediction[0], round(prediction[1], 4)])
 
         st.header('View results as:')
         format = st.radio('Select in what format you want to view the results:', ('Table', 'Images'))
