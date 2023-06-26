@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib.image import imread
 
 
-from src.visualization.image_montage import display_model_arc
+from src.visualization.display_data import display_model_arc
 
 def ml_details_body(model_version):
     st.header("Machine Learning Details")

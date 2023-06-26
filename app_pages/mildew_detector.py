@@ -3,7 +3,7 @@ from PIL import Image
 import numpy as np
 import pandas as pd
 
-from src.machine_learning.machine_learning import (
+from src.machine_learning.mildew_detector import (
                                                     size_img_for_model,
                                                     predict,
                                                     download_report

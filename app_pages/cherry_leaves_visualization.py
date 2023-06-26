@@ -4,7 +4,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from matplotlib.image import imread
 
-from src.visualization.image_montage import display_label_samples
+from src.visualization.display_data import display_label_samples
 
 def cherry_leaves_visualization_body(model_version):
     st.header("Cherry Leaves Visualization")
