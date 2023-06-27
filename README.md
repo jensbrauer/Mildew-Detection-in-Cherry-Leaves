@@ -196,6 +196,7 @@ The purpose of this project is to save time in this process. The IT team suggest
 * __statistics__ was used to calculate median values and extract insights from probability distributions.
 * __random__ was used in some cases for example to shuffle files for randomized selection in sampling etc.
 * __sys__ was used to capture console outputs and write to files for storing and use in app.
+* __zipfile__ was used to extract dataset from kaggle zipfile
 
 joblib is it really used?
 
