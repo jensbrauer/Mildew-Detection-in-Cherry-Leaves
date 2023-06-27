@@ -10,8 +10,8 @@ The cherry plantation crop from Farmy & Foods is facing a challenge where their 
 The purpose of this project is to save time in this process. The IT team suggested an ML system that detects instantly, using a leaf tree image, if it is healthy or has powdery mildew. A similar manual process is in place for other crops for detecting pests, and if this initiative is successful, there is a realistic chance to replicate this project for all other crops. The dataset is a collection of cherry leaf images provided by Farmy & Foods, taken from their crops.
 
 
-* 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
-* 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
+1. The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
+2. The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
 
 
 ## Hypothesis and how to validate?
@@ -29,9 +29,9 @@ The purpose of this project is to save time in this process. The IT team suggest
 ### Map the business requirements in a User Story based format to each of the Data Visualization and ML Tasks along with the specific actions required for the enablement of each task.
 
 * **Business Requirement 1**: Data Visualization 
+	* We will display an image montage for both healthy leaves and leaves infected with powdery mildew.
 	* We will display the "mean" and "standard deviation" images for healthy cherry leaves and cherry leaves that have powdery mildew.
  	* We will display the difference between an average image of healthy cherry leaf and an average uninfected cell.
-	* We will display an image montage for both healthy leaves and leaves infected with powdery mildew.
 
 * **Business Requirement 2**:  Classification
 	* We will augment a subset of the dataset provided by the client, to create more data for training a model. 
@@ -41,15 +41,15 @@ The purpose of this project is to save time in this process. The IT team suggest
 	* We will build a classifier and a dashboard that generate reports based on uploaded data.
 
 ## ML Business Case
-### Articulate a Business Case for each Machine Learning task which must include the aim behind the predictive analytics task, the learning method, the ideal outcome for the process, success/failure metrics, model output and its relevance for the user, and any heuristics and training data used.
-
-* We want an ML model to predict if a cherry leaf has powdery mildew or not, based on historical image data. It is a supervised, binary classification model. Though, approached as a categorical problem with two classes. 
+* We want an ML model to predict if a cherry leaf has powdery mildew or not, based on historical image data. It is a supervised, binary classification model. Though, technicaly it will be approached as a categorical classification model with two classes using a CNN with a softmax activation function in the output layer.
+* In order to "expand" the training data, we will use data augmentation techniques to allow the model to train on synthesized data.
 * Our ideal outcome is provide the employees working with inspection of cherry trees, with a faster and reliable diagnostic if a given leaf has powdery mildew or not.
 * The model success metrics are
 	* Accuracy of 97% or above on the test set.
-* The model output is defined as a flag, indicating if the leaf has powdery mildew or not and the associated probability of having powdery mildew or not. The employees of the client will collect samples as usual and upload the picture to the app.
+* The model output is a "prediction", indicating if the inputed data (image of a leaf) has powdery mildew or not and the associated probability of having powdery mildew or not. The employees of the client will collect samples as usual and upload the image to the app.
+* It will also be considered a success if we can establish an understanding of the probability metric and its significance, as this can guide users to, for example, resample the live data if probability is low for a given sample.
 * Heuristics: Currently, the process is to manually verify if a given cherry tree contains powdery mildew. An employee spends around 30 minutes in each tree, taking a few samples of tree leaves and verifying visually if the leaf tree is healthy or has powdery mildew. It leaves room to produce inaccurate diagnostics due to human errors and the solution i hard to scale in order to manage huge crops across the country.
-* The training data to fit the model was provided by the client under an NDA (Non-Disclosure Agreement) and contain 4208 images. For this project it was collected from a [kaggle dataset endpoint](https://www.kaggle.com/codeinstitute/cherry-leaves).
+* The data used for training and testing the model was provided by the client and contain 4208 images. For this project it was collected from a [kaggle dataset endpoint](https://www.kaggle.com/codeinstitute/cherry-leaves).
 
 
 ## Dashboard Design (Created using Streamlit)
@@ -90,7 +90,7 @@ The purpose of this project is to save time in this process. The IT team suggest
 				* List Conclusions and findings
 			* Warning/Error/Success Section indicating and clearly stating if the hypothesis could be confirmed or rejected.
 
-### Page 3: Cells Visualizer (Meet Business Requirement 1)
+### Page 3: Cherry Leaves Visualization (Meet Business Requirement 1)
 * Info section: General Page Description
 	* State business requirement 1 as well as hypothesis 1
 * Expandable sections (checkbox list)
@@ -128,7 +128,7 @@ The purpose of this project is to save time in this process. The IT team suggest
 					* Predicted class
 					* Assigned Probability
 
-### Page 5: ML Performance Metrics
+### Page 5: Machine Learning Details
 * Info section: General Page Description
 	* Describe the page content and how it relates to hypothesees 2 and 3.
 * Expandable sections (checkbox list)
@@ -159,7 +159,10 @@ The purpose of this project is to save time in this process. The IT team suggest
 
 
 ## Unfixed Bugs
-* You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+* Though no bugs were left unfixed during the development and testing process, one feature could be addressed in future iterations of the development cycle.
+	* This being that the model is not trained to recognize if it is actually being presented with a cherry leaf. This comes from the fact that the model has only been trained on images of cherry leafes and is only allowed to choose 1 out of two possible outputs.
+	* The most obvious implication of this is that even if the model is presented with a selfie of the user, it will return a prediction telling the user that he or she is in fact a cherry leaf with powdery mildew or not.
+	* This could perhaps be addressed by introducing a third category to the classification as well as an additional dataset that does not contain images of leaves at all.
 
 ## Deployment
 ### Heroku
