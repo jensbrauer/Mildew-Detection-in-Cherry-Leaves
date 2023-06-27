@@ -40,7 +40,7 @@ def cherry_leaves_visualization_body(model_version):
         st.write('---')
 
 
-    if st.checkbox('Label Difference in avarage'):
+    if st.checkbox('Differences Between Label Averages'):
         st.info(f'Below, the Avarage for each class studied above is plotted toghether with '
                 f'an additional plot showing the calculated difference between them (Avarage1 - Avarage2).\n\n'
                 f'The idea is to try and reveal any color value charicaristic that seperate the classes.')
