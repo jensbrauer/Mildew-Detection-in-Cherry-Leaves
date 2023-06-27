@@ -9,6 +9,9 @@ from src.visualization.display_data import display_model_arc
 
 def ml_details_body(model_version):
     st.header("Machine Learning Details")
+    st.info(f'Details about the machine learning model is presented below.\n\n'
+            f'View "Evaluation" section to see performance metrics of the deployed model, confirming hypothesis 2.\n'
+            f'View "Model Output" section to see distributions of prediction probabilities, related to hypothesis 3')
 #data information
     if st.checkbox('Data Preprocessing'):
         balance_check = plt.imread(f"outputs/{model_version}/dataset_balance.png")
@@ -73,4 +76,6 @@ def ml_details_body(model_version):
                     f"* I.e., 75% of false predictions are found in the {probability_report[report]['ratio']}% of predictions with lowest probability.")
             distribution_plot = plt.imread(f'outputs/{model_version}/proba_dist_{report.lower()}.png')
             st.image(distribution_plot, caption=f'Probabiliaty distribution for {report} data.')
+        st.error(f'NOTE: The insufficient amount of datapoints (false predictions) makes the study meaningless and irrelevant.'
+                f' Hence, hypothesis 3 can not be confirmed or rejected.')
         st.write("---")
