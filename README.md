@@ -26,7 +26,6 @@ The purpose of this project is to save time in this process. The IT team suggest
     * If this can be confirmed, it might be feasible for the users to "resample" when feeding the model live data, if the assigned probability to a given predication is low.
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
-### Map the business requirements in a User Story based format to each of the Data Visualization and ML Tasks along with the specific actions required for the enablement of each task.
 
 * **Business Requirement 1**: Data Visualization 
 	* We will display an image montage for both healthy leaves and leaves infected with powdery mildew.
@@ -107,7 +106,7 @@ The purpose of this project is to save time in this process. The IT team suggest
 		* Info Section: Describe the idea behind the conducted image analysis
 			* Image montage displaying the avarage images from both classes next to each other, as well as the calculated difference between them 
 
-### Page 4: Mildew Detector
+### Page 4: Mildew Detector (Meet Business Requirement 2)
 * Info section: General Page Description
 	* General decription of page and usage
 	* Guide to more information about the model
@@ -128,7 +127,7 @@ The purpose of this project is to save time in this process. The IT team suggest
 					* Predicted class
 					* Assigned Probability
 
-### Page 5: Machine Learning Details
+### Page 5: Machine Learning Details (Meet Business Requirement 2)
 * Info section: General Page Description
 	* Describe the page content and how it relates to hypothesees 2 and 3.
 * Expandable sections (checkbox list)
