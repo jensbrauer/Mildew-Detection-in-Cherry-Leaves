@@ -1,24 +1,21 @@
 import os
 import streamlit as st
-import pandas as pd
-import numpy as np
-import seaborn as sns
 import matplotlib.pyplot as plt
 from matplotlib.image import imread
 
-import itertools
 import random
 
 from tensorflow.keras.models import load_model
 import sys
 from io import StringIO
 
+
 def display_label_samples(label):
     montage_rows = 2
     montage_cols = 3
     figsize=(10,7)
 
-    sns.set_style("white")
+    #sns.set_style("white")
     img_path = 'inputs/cherry_leaves_dataset/cherry-leaves/validation/'
 
     print(f'Sample data from label: {label}')
