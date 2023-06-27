@@ -195,8 +195,9 @@ The purpose of this project is to save time in this process. The IT team suggest
 * __os__ as well as __shutil__ was used to manipulate and manage directories for example when spliting datasets and moving data.
 * __statistics__ was used to calculate median values and extract insights from probability distributions.
 * __random__ was used in some cases for example to shuffle files for randomized selection in sampling etc.
-* __sys__ was used to capture console outputs and write to files for storing and use in app.
+* __sys__ and __io__ was used to capture console outputs and write to files for storing and use in app.
 * __zipfile__ was used to extract dataset from kaggle zipfile
+* __datetime__ was used to timestamp and name downloadable reports
 
 joblib is it really used?
 
