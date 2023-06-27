@@ -182,6 +182,23 @@ The purpose of this project is to save time in this process. The IT team suggest
 ## Main Data Analysis and Machine Learning Libraries
 * Here you should list the libraries used in the project and provide an example(s) of how you used these libraries.
 
+* __Streamlit__ was used to create the dashboard.
+* __Pickle__ was used to save and load files, from the Jupyter Notebooks into the dashboard application.
+* __Scikit-learn__ was used to create classification reports and confusion matrixes for evaluating the model.
+* __Tensorflow__ and __Keras__ was used to build and load the model as well as doing preprocessing like image augmentation and callbacks for early stopping. 
+* __Seaborn__ was used to create plots in combination with matplotlib
+* __Matplotlib__ was also used to read and load image files into NumPy arrays
+* __NumPy__ was used for array manipulation, reshaping, and numerical operations on image data and labels.
+* __Pandas__ was used for creating functional dataframes for creating plots as well as reports and tables
+* __PIL__ was used for image processing tasks such as resizing, manipulating, and converting image files.
+* __base64__ was used to encode data in Base64 format, which is then used to create a download link for a CSV file in the code.
+* __os__ as well as __shutil__ was used to manipulate and manage directories for example when spliting datasets and moving data.
+* __statistics__ was used to calculate median values and extract insights from probability distributions.
+* __random__ was used in some cases for example to shuffle files for randomized selection in sampling etc.
+* __sys__ was used to capture console outputs and write to files for storing and use in app.
+
+joblib is it really used?
+
 
 ## Credits 
 
