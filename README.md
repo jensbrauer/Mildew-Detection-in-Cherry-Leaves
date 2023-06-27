@@ -167,7 +167,7 @@ The purpose of this project is to save time in this process. The IT team suggest
 ## Deployment
 ### Heroku
 
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
+* The App live link is: https://jens-brauers-mildew-detector.herokuapp.com/ 
 * Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 * The project was deployed to Heroku using the following steps.
 
@@ -180,7 +180,6 @@ The purpose of this project is to save time in this process. The IT team suggest
 
 
 ## Main Data Analysis and Machine Learning Libraries
-* Here you should list the libraries used in the project and provide an example(s) of how you used these libraries.
 
 * __Streamlit__ was used to create the dashboard.
 * __Pickle__ was used to save and load files, from the Jupyter Notebooks into the dashboard application.
@@ -199,29 +198,17 @@ The purpose of this project is to save time in this process. The IT team suggest
 * __zipfile__ was used to extract dataset from kaggle zipfile
 * __datetime__ was used to timestamp and name downloadable reports
 
-joblib is it really used?
-
 
 ## Credits 
+Thanks to [Sabyasachi Sahoo](https://medium.com/@ssahoo.ai) for explanation on [Deciding optimal kernel size for CNN](https://towardsdatascience.com/deciding-optimal-filter-size-for-cnns-d6f7b56f9363)
 
-* In this section, you need to reference where you got your content, media and from where you got extra help. It is common practice to use code from other repositories and tutorials. However, it is necessary to be very specific about these sources to avoid plagiarism. 
-* You can break the credits section up into Content and Media, depending on what you have included in your project. 
+Thanks to [Nicolai Nielsen](https://www.youtube.com/@NicolaiAI) for explanation on [Regularization in Neural Networks and Deep Learning with Keras and TensorFlow](https://www.youtube.com/watch?v=aner3u79IGw)
 
-### Content 
+Thanks to [Hugo Larochelle](https://www.youtube.com/@hugolarochelle) for explanation on [Neural networks [7.5] : Deep learning - dropout](https://www.youtube.com/watch?v=UcKPdAM8cnI&t=201s)
 
-- The text for the Home page was taken from Wikipedia Article A.
-- Instructions on how to implement form validation on the Sign-Up page were taken from [Specific YouTube Tutorial](https://www.youtube.com/).
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/).
+Thanks to [Davide Giordano](https://medium.com/@davidegiordano) for [7 tips to choose the best optimizer](https://towardsdatascience.com/7-tips-to-choose-the-best-optimizer-47bb9c1219e)
 
-### Media
+Thanks to [Code Institute](https://codeinstitute.net/se/) for their amazing program [Diploma in Full Stack
+Software Development](https://codeinstitute.net/se/full-stack-software-development-diploma/?utm_term=code%20institute&utm_campaign=CI+-+SWE+-+Search+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8983321581&hsa_cam=14660337051&hsa_grp=134087657984&hsa_ad=635849372549&hsa_src=g&hsa_tgt=kwd-319867646331&hsa_kw=code%20institute&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad=1&gclid=CjwKCAjwkeqkBhAnEiwA5U-uM00n5I1EnBiHAkjq8DQPg5kxyuG5aYfA2b2SnRjNqu9MLuLYEdw4tBoCN9MQAvD_BwE) that is the backbone of this project by providing tutorials, walkthrough projects and educational content covering almost all concepts used in this project.
 
-- The photos used on the home and sign-up page are from This Open-Source site.
-- The images used for the gallery page were taken from this other open-source site.
-
-
-
-## Acknowledgements (optional)
-* Thank the people that provided support throughout this project.
-
-describe the content (such as text, plot, widgets etc)
-when applicable, indicate the business requirement that a given page is answering.
+Thanks to [Code institute on Kaggle](https://www.kaggle.com/codeinstitute) for providing the [dataset](https://www.kaggle.com/datasets/codeinstitute/cherry-leaves) for this project.
