@@ -25,7 +25,6 @@ The purpose of this project is to save time in this process. The IT team suggest
   * Studying the distribution of predictions in ranges of probability, and distribution of false predictions in ranges of probability, can help investigate it.
     * If this can be confirmed, it might be feasible for the users to "resample" when feeding the model live data, if the assigned probability to a given predication is low.
 
-
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 ### Map the business requirements in a User Story based format to each of the Data Visualization and ML Tasks along with the specific actions required for the enablement of each task.
 
@@ -33,22 +32,17 @@ The purpose of this project is to save time in this process. The IT team suggest
 	* We will display the "mean" and "standard deviation" images for healthy cherry leaves and cherry leaves that have powdery mildew.
  	* We will display the difference between an average image of healthy cherry leaf and an average uninfected cell.
 	* We will display an image montage for both healthy leaves and leaves infected with powdery mildew.
-	
-	
 
 * **Business Requirement 2**:  Classification
 	* We will augment a subset of the dataset provided by the client, to create more data for training a model. 
 	* We will build a model using a convolutional neural network (CNN) and train it using the training dataset, to determine if a cherry leaf has powdery mildew or not.
 	* We will build the model to output a probability and examine the distribution of assigned probabilities and where false predictions are located in that distirbution, in order to understand its significans.
 	* In training the model, we will withold a subset of the provided dataset, in order to evaluate the model, using "unseen" data, in order to ensure we meet the clients request for a minimum of 97% prediction accuracy.
-	* We will build a classifier and an application that generate reports based on uploaded data.
-
-
+	* We will build a classifier and a dashboard that generate reports based on uploaded data.
 
 ## ML Business Case
 ### Articulate a Business Case for each Machine Learning task which must include the aim behind the predictive analytics task, the learning method, the ideal outcome for the process, success/failure metrics, model output and its relevance for the user, and any heuristics and training data used.
 
-* In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
 * We want an ML model to predict if a cherry leaf has powdery mildew or not, based on historical image data. It is a supervised, binary classification model. Though, approached as a categorical problem with two classes. 
 * Our ideal outcome is provide the employees working with inspection of cherry trees, with a faster and reliable diagnostic if a given leaf has powdery mildew or not.
 * The model success metrics are
@@ -60,29 +54,58 @@ The purpose of this project is to save time in this process. The IT team suggest
 
 ## Dashboard Design (Created using Streamlit)
 ### Page 1: Project Background
-* Quick project summary
-    * General Information
-        * Powdery mildew is a fungal disease that affects a wide range of plants and cherry leaves included.
-        * The process to verify if a given cherry tree contains powdery mildew involves an employee spending around 30 minutes in a tree, taking a few samples of leaves and verifying visually if the leaf tree has powdery mildew or not.
-        * Managing thousands of cherry trees located in multiple farms across the country requires a scalable solution to ensure that the market is not supplied with a product of compromised quality.
-	* Business requirements
-		*  1. The client is interested to have a study to visually differentiate between a parasite contained and uninfected cell.
-			*  **Outline the conclusions of the data analytics task undertaken that helps answer a given business requirement in the appropriate section on the dashboard page.**
-		*  2. The client is interested to tell whether a given cell contains malaria parasite or not.
-			*  **Provide a clear statement on the dashboard to inform the user that the ML model/pipeline has been successful (or otherwise) in answering the predictive task it was intended to address.**
-    * Project Dataset
-        * The dataset available for the project contains 4208 images in .jpeg format, taken from the client's crop fields. The dataset include two classes of images with 2104 images each. The classes are labeled 'Powdery Mildew' for images of leaves that are infected with the fungal desease and 'Healthy' for images of leaves that are uninfected.
-		* Link to the dataset
+* Info Section: General Page Information
+    * Describe the reason for the project and the envisioned benifits from the clients perspective, as well as some heuristics.
+* List Section: Business requirements
+	* Ordered list with the business requirements that guide the efforts of the project.
+	*  1. The client is interested to have a study to visually differentiate between a parasite contained and uninfected cell.
+	*  2. The client is interested to tell whether a given cell contains malaria parasite or not.
+* Text Section: Project Dataset 
+    * Describes the dataset in general terms.
+	* Guide the user towards the model specification page where it is examined more thouroughly
+	* Guide the user with a link and description about the Kaggle endpoint where it was sourced.
+* Info section: More information
+	* Guide the user to this readme file on github with a link and a description.
 
 ### Page 2: Summary and Results
-* Block for each project hypothesis, describe the conclusion and how you validated.
-Provide a clear statement on the dashboard to inform the user that the ML model/pipeline has been successful (or otherwise) in answering the predictive task it was intended to address.
+* Info Section: General Page Information
+	* Describe how the business requirements where translated into Hypothesis that could be tested and confirmed/rejected in order for the project to meet the business requirements.
+* Text section: Business requirement 1
+	* Statement of business requirement 1 
+		* Expandable text section (Checkbox) : Hypothesis 1
+			* Info section: Hypothesis 1
+				* Description of how hypothesis was approached
+				* List Conclusions and findings
+			* Warning/Error/Success Section indicating and clearly stating if the hypothesis could be confirmed or rejected.
+* Text section: Business requirement 2
+	* Statement of business requirement 2 
+		* Expandable text section (Checkbox) : Hypothesis 2
+			* Info section: Hypothesis 2
+				* Description of how hypothesis was approached
+				* List Conclusions and findings
+			* Warning/Error/Success Section indicating and clearly stating if the hypothesis could be confirmed or rejected.
+		* Expandable text section (Checkbox) : Hypothesis 3
+			* Info section: Hypothesis 3
+				* Description of how hypothesis was approached
+				* List Conclusions and findings
+			* Warning/Error/Success Section indicating and clearly stating if the hypothesis could be confirmed or rejected.
 
-### Page 3: Cells Visualizer
-* It will answer business requirement 1
-	* Checkbox 1 - Difference between average and variability image
-	* Checkbox 2 - Differences between average parasitized and average uninfected cells
-	* Checkbox 3 - Image Montage
+### Page 3: Cells Visualizer (Meet Business Requirement 1)
+* Info section: General Page Description
+	* State business requirement 1 as well as hypothesis 1
+* Expandable sections (checkbox list)
+	* Checkbox 1 - Label Samples
+		* Info section: Description of the section
+		* RadioButtons ('Healthy', 'Powdery_Mildew')
+			* Display 2x6 number of images from selected class in dataset.
+	* Checkbox 2 - Average and Variability for each class
+		* Info section: Describe the idea behind the conducted image analysis
+		* Image montages with variability and Avarage per class
+			* Healthy class image mntage
+			* Powdery Mildew class image montage
+	* Checkbox 3 - Differences Between Label Averages
+		* Info Section: Describe the idea behind the conducted image analysis
+			* Image montage displaying the avarage images from both classes next to each other, as well as the calculated difference between them 
 
 ### Page 4: Mildew Detector
 * Business requirement 2 information - "The client is interested to tell whether a given cell contains malaria parasite or not."
@@ -92,9 +115,33 @@ Provide a clear statement on the dashboard to inform the user that the ML model/
 * Download button to download table.
 
 ### Page 5: ML Performance Metrics
-* Label Frequencies for Train, Validation and Test Sets
-* Model History - Accuracy and Losses
-* Model evaluation result
+* Info section: General Page Description
+	* Describe the page content and how it relates to hypothesees 2 and 3.
+* Expandable sections (checkbox list)
+	* Checkbox 1 - Data Preprocessing
+		* Info section: Describe data balance and data split ratio
+		* Plot data distribution across data subsets
+		* Warning section: Comment No call for action
+			* Horizontal Section Break
+		* Info section: Describe Image size distribution
+		* Plot image size distribution for all images
+		* Error section: Note: Images where resized for model size management
+	* Checkbox 2 - Model Architecture
+		* Info section: Description of the model and list image augmentation and regularization techniques applied
+		* Text out model.summary()
+	* Checkbox 3 - Model Training
+		* Info section: Description of the section images
+		* Image: Accuracy and validation Accuracy accross epochs in model training
+		* Image: Loss and Validation Loss accross epochs in model training
+	* Checkbox 4 - Model Evaluation
+		* Info section: Description of the section
+		* List Loss and Accuracy evaluation on test dataset.
+	* Checkbox 5 - Model Output
+		* Info section: Description of the section, the purpose of the conducted study and the idea behind it.
+		* For training-, validation- and test-data
+			* Show "Probability Report" and metrics indicating the probability outputs significance and meaning
+			* Show distribution plots of false predictions next to all predictions.
+		* Error section: Comment that points to the fact that datapoints are to few for it to be a meaningful study and that hypothesis 3 can not be confirmed or rejected.
 
 
 ## Unfixed Bugs
