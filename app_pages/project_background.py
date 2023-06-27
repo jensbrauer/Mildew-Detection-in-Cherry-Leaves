@@ -14,10 +14,11 @@ def project_background_body(model_version):
         f"for the task of detecting powdery mildew in cherry leaves. ")
 
     st.write(
-        f"**Business Requirements**\n"
-        f"* 1 - The client is interested in conducting a study to visually "
+        f"**Business Requirements**\n\n"
+        f"*The following business requirements have been formulated to guide the efforts of the project*\n\n"
+        f"1. The client is interested in conducting a study to visually "
         f"differentiate a healthy cherry leaf from one with powdery mildew.\n"
-        f"* 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew. "
+        f"2. The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew. "
         )
 
     st.write(
