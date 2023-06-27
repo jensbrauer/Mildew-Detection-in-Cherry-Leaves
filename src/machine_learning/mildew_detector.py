@@ -27,7 +27,7 @@ def predict(img, model_version):
     else:
         return 'Powdery_Mildew', (1 - prediction)
 
-
+#Used basically the same code as in walkthroughproject at "https://github.com/Code-Institute-Solutions/WalkthroughProject01/blob/main/src/data_management.py" by NielMc on github https://github.com/NielMc
 def download_report(df):
     report_name = datetime.now().strftime('Mildew_Report_' + "%d%b%Y_%Hh%Mmin%Ss")
     csv = df.to_csv().encode()
