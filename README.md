@@ -108,11 +108,25 @@ The purpose of this project is to save time in this process. The IT team suggest
 			* Image montage displaying the avarage images from both classes next to each other, as well as the calculated difference between them 
 
 ### Page 4: Mildew Detector
-* Business requirement 2 information - "The client is interested to tell whether a given cell contains malaria parasite or not."
-* Link to download a set of parasite contained and uninfected cell images for live prediction.
-* User Interface with a file uploader widget. The user should upload multiple malaria cell image. It will display the image and a prediction statement, indicating if the cell is infected or not with malaria and the probability associated with this statement. 
-* Table with image name and prediction results.
-* Download button to download table.
+* Info section: General Page Description
+	* General decription of page and usage
+	* Guide to more information about the model
+	* Link to dataset containing cherry leafes for testing
+* File uploader widget
+	* Option to upload one or more .JPEG images with browse button
+* Results Presentation Section
+	* Radiobuttons section - ('Table' or 'Images')
+		* Caption - Select the format in to show results in
+		* RadioOption - Table
+			* Show anchhor link to download Table report as CSV
+			* Display streamlit table
+		* RadioOption - Images
+			* For each uploaded file:
+				* Show Image
+				* Error or Success section indicating "Healthy" or "Infected" and containing:
+					* Filename
+					* Predicted class
+					* Assigned Probability
 
 ### Page 5: ML Performance Metrics
 * Info section: General Page Description
