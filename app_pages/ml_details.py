@@ -15,7 +15,7 @@ def ml_details_body(model_version):
 #data information
     if st.checkbox('Data Preprocessing'):
         balance_check = plt.imread(f"outputs/{model_version}/dataset_balance.png")
-        st.info(f' as seen below, data is perfectly balanced and was distributed by\n'
+        st.info(f' As seen below, data is perfectly balanced and was distributed by\n'
                 f'* Training: 70%\n'
                 f'* Validation: 10%\n'
                 f'* Training: 20%\n'
