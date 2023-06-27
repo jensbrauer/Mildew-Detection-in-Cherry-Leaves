@@ -1,8 +1,5 @@
 import streamlit as st
-
-
 import matplotlib.pyplot as plt
-from matplotlib.image import imread
 
 from src.visualization.display_data import display_label_samples
 
